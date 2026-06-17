@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,33 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Croissant+One&display=swap" rel="stylesheet" />
+      </head>
+      <body className="min-h-full flex flex-col">
+        <div style={{
+          "display": "flex",
+          "justifyContent": "center",
+          "width": "100%"
+        }}>
+          <div style={{
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+
+            "maxWidth": "1000px",
+            "width": "90%"
+          }}>
+            <Header />
+            <Nav /> 
+            <main>
+              {children}
+            </main>
+          </div>
+        </div>
+      </body>
     </html>
   );
 }

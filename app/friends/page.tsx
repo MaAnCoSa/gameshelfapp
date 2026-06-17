@@ -18,7 +18,7 @@ export default function Friends() {
         "border": "solid white 2px",
         "margin": "auto"
       }}>
-        Home
+        Friends
       </div>
 
     </div>

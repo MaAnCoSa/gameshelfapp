@@ -1,5 +1,4 @@
-
-export default function Friends() {
+export default function HomePage() {
   return (
     <div style={{
         "fontSize": 25,
@@ -9,7 +8,6 @@ export default function Friends() {
 
         "display": "flex",
         "justifyContent": "center",
-        "marginTop": "10px",
 
         "backgroundColor": "#240046",
         "borderRadius": "10px",

@@ -1,8 +1,9 @@
+import GameCard from "./GameCard";
 
-export default function Friends() {
+export default function MyGames() {
   return (
     <div style={{
-        "fontSize": 25,
+        "fontSize": 18,
         "fontFamily": '"Croissant One", "serif"',
         "fontWeight": 400,
         "fontStyle": "normal",
@@ -18,9 +19,16 @@ export default function Friends() {
         "border": "solid white 2px",
         "margin": "auto"
       }}>
-        Home
-      </div>
 
+        <GameCard
+          name={"Juego de Prueba"}
+          min_duration={30}
+          max_duration={90}
+          min_players={2}
+          max_players={4}
+        />
+        
+      </div>
     </div>
   );
 }
