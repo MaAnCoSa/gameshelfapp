@@ -45,7 +45,7 @@ export default function RootLayout({
             "flexDirection": "column",
             "justifyContent": "center",
 
-            "maxWidth": "1000px",
+            "maxWidth": "800px",
             "width": "90%"
           }}>
             <Header />
