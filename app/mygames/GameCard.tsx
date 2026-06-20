@@ -1,23 +1,35 @@
 import { GiAlarmClock, Gi3dMeeple } from "react-icons/gi";
+import { Game } from "../types/Game"
 
 interface game_card_data {
+  id: string,
   name: string,
   min_duration: number,
   max_duration: number,
   min_players: number,
   max_players: number,
-  image_url: string
+  main_image: string,
+  setSelectedGameId: React.Dispatch<React.SetStateAction<string>>,
+  getGameDetails: (id: string) => void
 }
 
 export default function GameCard({
+  id,
   name,
   min_duration,
   max_duration,
   min_players,
   max_players,
-  image_url
+  main_image,
+  setSelectedGameId,
+  getGameDetails
 }: game_card_data
 ) {
+
+  const handleGameSelection = () => {
+    setSelectedGameId(id)
+    getGameDetails(id)
+  }
 
   return (
     <div style={{
@@ -33,10 +45,12 @@ export default function GameCard({
 
       "marginBottom": "5px",
       "borderRadius": "10px",
+
+      "cursor": "pointer",
+      
       //"border": "solid white 2px",
       "boxSizing": "border-box",
-
-    }}>
+    }} onClick={handleGameSelection}>
       <div style={{
         "display": "flex",
         "justifyContent": "center",
@@ -54,7 +68,7 @@ export default function GameCard({
           "borderTopLeftRadius": "10px",
           "borderBottomLeftRadius": "10px",
           "objectFit": "contain",
-        }} src={image_url} alt={"Cubierta de " + name} />
+        }} src={main_image} alt={"Cubierta de " + name} />
       </div>
 
       <div style={{
