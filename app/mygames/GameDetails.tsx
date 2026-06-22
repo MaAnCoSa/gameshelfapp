@@ -1,5 +1,6 @@
 import { GiAlarmClock, Gi3dMeeple } from "react-icons/gi";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import ImageCarrousel from "./ImageCarrousel";
 
 interface game_card_data {
   name: string,
@@ -41,110 +42,111 @@ export default function GameDetails({
       "zIndex": "9",
       "borderRadius": "10px",
 
+      "overflowY": "auto",
+
       "padding": "10px",
 
       // "border": "solid white 2px"
     }}>
 
       <div style={{
-          "width": "100%",
-          "height": "auto",
-          "backgroundColor": "#240046",
+        "width": "100%",
+        "height": "auto",
+        "backgroundColor": "#240046",
+        "display": "flex",
+        "alignItems": "left",
+        "justifyContent": "left",
+        "zIndex": "9",
+
+        "marginBottom": "10px",
+
+        // "border": "solid white 2px"
+      }}>
+
+        <div style={{
+          "width": "40px",
+          "height": "40px",
           "display": "flex",
-          "alignItems": "left",
-          "justifyContent": "left",
-          "zIndex": "9",
+          "justifyContent": "center",
+          "alignItems": "center",
 
-          "marginBottom": "10px",
+          "marginRight": "10px",
+          "marginTop": "5px",
+          "marginLeft": "5px",
 
-          // "border": "solid white 2px"
-        }}>
+          "borderRadius": "20px",
 
-          <div style={{
-            "width": "40px",
-            "height": "40px",
-            "display": "flex",
-            "justifyContent": "center",
-            "alignItems": "center",
+          "cursor": "pointer",
 
-            "marginRight": "10px",
-            "marginTop": "5px",
-            "marginLeft": "5px",
-
-            "borderRadius": "20px",
-
-            "cursor": "pointer",
-
-            // "border": "solid green 2px"
-          }} onClick={() => {setGameIsSelected(false)}}>
-            <IoMdCloseCircleOutline size={40}/>
-          </div>
-
-          <div style={{
-            "fontSize": 25,
-            "fontFamily": '"Croissant One", "serif"',
-            "fontWeight": 400,
-            "fontStyle": "normal",
-
-            "width": "100%",
-            
-            "display": "flex",
-            "justifyContent": "right",
-            "alignItems": "center",
-
-            // "border": "solid green 2px"
-          }}>
-            {name} 
-          </div>
-          
+          // "border": "solid green 2px"
+        }} onClick={() => {setGameIsSelected(false)}}>
+          <IoMdCloseCircleOutline size={40}/>
         </div>
 
         <div style={{
-          "padding": "0 10px",
+          "fontSize": 25,
+          "fontFamily": '"Croissant One", "serif"',
+          "fontWeight": 400,
+          "fontStyle": "normal",
 
-          // "border": "solid white 2px"
+          "width": "100%",
+          
+          "display": "flex",
+          "justifyContent": "right",
+          "alignItems": "center",
+
+          // "border": "solid green 2px"
         }}>
-
-          <div style={{
-            "display": "flex",
-            "flexDirection": "row",
-            "justifyContent": "right",
-            "alignItems": "center",
-
-            "marginTop": "5px",
-            
-            // "border": "solid white 2px"
-          }}>
-            <Gi3dMeeple style={{ "height": "15px", "marginRight": "5px" }}/> {min_players} - {max_players}
-          </div>
-          
-          <div style={{
-            "display": "flex",
-            "flexDirection": "row",
-            "justifyContent": "right",
-            "alignItems": "center",
-
-            "marginBottom": "5px"
-            
-            // "border": "solid white 2px"
-          }}>
-            <GiAlarmClock style={{ "height": "15px", "marginRight": "5px" }} /> {min_duration} - {max_duration}
-          </div>
-
-          <div style={{
-            "fontSize": 20,
-            "fontFamily": '"Croissant One", "serif"',
-            "fontWeight": 400,
-            "fontStyle": "normal",
-
-            // "border": "solid green 2px"
-          }}>
-            {description}
-          </div>
-          
+          {name} 
         </div>
+          
+      </div>
 
-      
+      <div style={{
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "right",
+        "alignItems": "center",
+
+        "width": "100%",
+
+        "marginTop": "5px",
+        
+        // "border": "solid white 2px"
+      }}>
+        <Gi3dMeeple style={{ "height": "15px", "marginRight": "5px" }}/> {min_players} - {max_players}
+      </div>
+          
+      <div style={{
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "right",
+        "alignItems": "center",
+
+        "width": "100%",
+
+        "marginBottom": "5px"
+        
+        // "border": "solid white 2px"
+      }}>
+        <GiAlarmClock style={{ "height": "15px", "marginRight": "5px" }} /> {min_duration} - {max_duration}
+      </div>
+
+      <ImageCarrousel
+        name={name}
+        main_image={main_image}
+        images={images}
+      />
+
+      <div style={{
+        "fontSize": 20,
+        "fontFamily": '"Croissant One", "serif"',
+        "fontWeight": 400,
+        "fontStyle": "normal",
+
+      }}>
+        {description}
+      </div>
     </div>
   );
 }
